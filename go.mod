@@ -17,14 +17,14 @@ require (
 require (
 	github.com/alecthomas/kingpin/v2 v2.3.2
 	github.com/creasty/defaults v1.7.0
-	github.com/felixge/fgprof v0.9.3
+	github.com/felixge/fgprof v0.9.4
 )
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
-	github.com/google/pprof v0.0.0-20230926050212-f7f687d19a98 // indirect
+	github.com/google/pprof v0.0.0-20240227163752-401108e1b7e7 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/prometheus/client_model v0.5.0 // indirect
