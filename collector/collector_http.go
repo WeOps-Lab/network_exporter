@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	httpLabelNames  = []string{"name", "target"}
+	httpLabelNames  = []string{"task_name", "target"}
 	httpTimeDesc    = prometheus.NewDesc("http_get_seconds", "HTTP Get Drill Down time in seconds", append(httpLabelNames, "type"), nil)
 	httpSizeDesc    = prometheus.NewDesc("http_get_content_bytes", "HTTP Get Content Size in bytes", httpLabelNames, nil)
 	httpStatusDesc  = prometheus.NewDesc("http_get_status", "HTTP Get Status", httpLabelNames, nil)

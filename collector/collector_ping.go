@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	icmpLabelNames         = []string{"name", "target", "target_ip"}
+	icmpLabelNames         = []string{"task_name", "target", "target_ip"}
 	icmpStatusDesc         = prometheus.NewDesc("ping_status", "Ping Status", icmpLabelNames, nil)
 	icmpRttDesc            = prometheus.NewDesc("ping_rtt_seconds", "Round Trip Time in seconds", append(icmpLabelNames, "type"), nil)
 	icmpSntSummaryDesc     = prometheus.NewDesc("ping_rtt_snt_count", "Packet sent count", icmpLabelNames, nil)

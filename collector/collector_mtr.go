@@ -11,12 +11,12 @@ import (
 )
 
 var (
-	mtrLabelNames  = []string{"name", "target", "ttl", "path"}
+	mtrLabelNames  = []string{"task_name", "target", "ttl", "path"}
 	mtrDesc        = prometheus.NewDesc("mtr_rtt_seconds", "Round Trip Time in seconds", append(mtrLabelNames, "type"), nil)
 	mtrSntDesc     = prometheus.NewDesc("mtr_rtt_snt_count", "Round Trip Send Package Total", append(mtrLabelNames, "type"), nil)
 	mtrSntFailDesc = prometheus.NewDesc("mtr_rtt_snt_fail_count", "Round Trip Send Package Fail Total", append(mtrLabelNames, "type"), nil)
 	mtrSntTimeDesc = prometheus.NewDesc("mtr_rtt_snt_seconds", "Round Trip Send Package Time Total", append(mtrLabelNames, "type"), nil)
-	mtrHopsDesc    = prometheus.NewDesc("mtr_hops", "Number of route hops", []string{"name", "target"}, nil)
+	mtrHopsDesc    = prometheus.NewDesc("mtr_hops", "Number of route hops", []string{"task_name", "target"}, nil)
 	mtrTargetsDesc = prometheus.NewDesc("mtr_targets", "Number of active targets", nil, nil)
 	mtrStateDesc   = prometheus.NewDesc("mtr_up", "Exporter state", nil, nil)
 	mtrMutex       = &sync.Mutex{}
@@ -63,7 +63,7 @@ func (p *MTR) Collect(ch chan<- prometheus.Metric) {
 		l2 := prometheus.Labels(p.labels[target])
 
 		mtrDesc = prometheus.NewDesc("mtr_rtt_seconds", "Round Trip Time in seconds", append(mtrLabelNames, "type"), l2)
-		mtrHopsDesc = prometheus.NewDesc("mtr_hops", "Number of route hops", []string{"name", "target"}, l2)
+		mtrHopsDesc = prometheus.NewDesc("mtr_hops", "Number of route hops", []string{"task_name", "target"}, l2)
 
 		ch <- prometheus.MustNewConstMetric(mtrHopsDesc, prometheus.GaugeValue, float64(len(metric.Hops)), l...)
 		for _, hop := range metric.Hops {
